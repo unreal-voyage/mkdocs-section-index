@@ -31,7 +31,7 @@ class SectionIndexPlugin(BasePlugin):
                 if not isinstance(page, Page):
                     continue
                 assert not page.children
-                if not page.title and page.url:
+                if page.title is None and page.url is not None:
                     # The page becomes a section-page.
                     page.__class__ = SectionPage
                     assert isinstance(page, SectionPage)
